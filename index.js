@@ -1,8 +1,8 @@
     console.log("Bro am registering your components")
 
-    import aframe from 'aframe';
-    import 'aframe-extras'
-    import 'aframe-look-at-component'
+    // import aframe from 'aframe';
+    // import 'aframe-extras'
+    // import 'aframe-look-at-component'
 
 
 
