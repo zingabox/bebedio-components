@@ -1,0 +1,30 @@
+{
+  "name": "bebedio-components",
+  "version": "1.0.0",
+  "description": "Several AFRAME components used by the Bebedio platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle-dev": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zingabox/bebedio-components.git"
+  },
+  "author": "Bebedio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zingabox/bebedio-components/issues"
+  },
+  "homepage": "https://github.com/zingabox/bebedio-components#readme",
+  "dependencies": {
+    "three": "^0.87.1",
+    "aframe": "^0.8.2",
+    "aframe-extras": "^4.2.0",
+    "aframe-look-at-component": "^0.7.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
