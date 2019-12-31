@@ -80,7 +80,8 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist was commented out by jafet to be able to pull dependency via CDN
+# dist
 
 # Gatsby files
 .cache/
