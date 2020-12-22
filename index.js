@@ -25,10 +25,21 @@
         this.orientCharacter = function(evt) {
           if (evt.detail.els[0].id !== 'cursio' && evt.detail.intersections.length >= 1) {
 
+            console.log('detected intersection')
+            console.log("intersected this")
+            console.log(evt.detail.els[0])
+            // console.log(this.data.active)
             if (this.data.active) {
+              // console.log('calculating lookat')
               var lookAt = new THREE.Vector3(evt.detail.intersections[0].point.x, evt.detail.intersections[0].point.y, evt.detail.intersections[0].point.z);
+              //4/23/2020
+              // lookAt.sub(document.querySelector('#enclosure').object3D.position)
               lookAt.sub(document.querySelector('#enclosure').getAttribute('position'))
+              // console.log('about to look at this position')
+              // console.log(lookAt)
               document.querySelector('#player').setAttribute('look-at', lookAt)
+              //4/23/2020
+              // var rotation = document.querySelector('#thecam').object3D.rotation
               var rotation = document.querySelector('#thecam').getAttribute('rotation')
               var rotMetric = 0
               var rotation = 90 + rotation.y
@@ -56,6 +67,10 @@
               var x = -(cameraDistance - compassFactor) * Math.cos(rotMetric)
               var z = (cameraDistance + compassFactor) * Math.sin(rotMetric)
               var y = (cameraDistance / 1.5) + (cameraOscillationAmplitude / 10) * compassFactor //Math.cos(2*Math.PI*verticalFreq*(d.getTime()/1000))
+
+              //4/23/2020
+              // .object3D.position.set(entityPosition.x, entityPosition.y, entityPosition.z)
+              // document.querySelector('#thecam').object3D.position.set(x, y, z)
               document.querySelector('#thecam').setAttribute('position', new THREE.Vector3(x, y, z))
             }
             document.querySelector('#cursio').components.raycaster.init()
@@ -139,7 +154,13 @@
       // ,init: function() {          this.data.position = this.el.object3D.position;}
       ,
       tick: function() {
-        this.el.setAttribute('position-mirror', this.el.object3D.position)
+        // this.el.setAttribute('position-mirror', this.el.object3D.position)
+        // console.log('position to set is')
+        // console.log(this.el.object3D.position)
+        this.el.setAttribute('position-mirror', { x: this.el.object3D.position.x, y: this.el.object3D.position.y, z: this.el.object3D.position.z })
+        // this.el.setAttribute('position', { x: this.el.object3D.position.x, y: this.el.object3D.position.y, z: this.el.object3D.position.z })
+        // this.el.setAttribute('position-mirror', this.el.object3D.position)
+        
         // this.el.setAttribute('position', this.el.object3D.position)
       }
     });
@@ -174,11 +195,18 @@
 
 
           if (this.data.horizontal) {
-            // targetValue.y = 0 //this.el.object3D.position.y
+          
+          //4/23/2020
+          // this.el.object3D[this.data.property].set(targetValue.x,targetValue.y,targetValue.z)
             this.el.setAttribute(this.data.property, { x: targetValue.x, y: 0, z: targetValue.z })
+
           }
           else {
+
+          //4/23/2020
+          // this.el.object3D[this.data.property].set(targetValue)
             this.el.setAttribute(this.data.property, targetValue)
+
           }
         }
         catch (e) {
