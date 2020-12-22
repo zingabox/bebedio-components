@@ -27,10 +27,9 @@
           numIntersects=evt.detail.els.length
           if (evt.detail.els[numIntersects-1].id !== 'cursio' && evt.detail.intersections.length >= 1) {
 
-            console.log('detected intersection')
-            console.log("intersected this")
-            console.log(evt.detail)
-            // console.log(this.data.active)
+            // console.log('detected intersection')
+            // console.log("intersected this")
+            // console.log(evt.detail)
             if (this.data.active) {
               // console.log('calculating lookat')
               var lookAt = new THREE.Vector3(evt.detail.intersections[numIntersects-1].point.x, evt.detail.intersections[numIntersects-1].point.y, evt.detail.intersections[numIntersects-1].point.z);
