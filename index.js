@@ -23,15 +23,17 @@
         // this.orientCharacter = this.orientCharacter.bind(this);
         // function orientCharacter(evt) {
         this.orientCharacter = function(evt) {
-          if (evt.detail.els[0].id !== 'cursio' && evt.detail.intersections.length >= 1) {
+          // if (evt.detail.els[0].id !== 'cursio' && evt.detail.intersections.length >= 1) {
+          numIntersects=evt.detail.els.length
+          if (evt.detail.els[numIntersects-1].id !== 'cursio' && evt.detail.intersections.length >= 1) {
 
             console.log('detected intersection')
             console.log("intersected this")
-            console.log(evt.detail.els[0])
+            console.log(evt.detail)
             // console.log(this.data.active)
             if (this.data.active) {
               // console.log('calculating lookat')
-              var lookAt = new THREE.Vector3(evt.detail.intersections[0].point.x, evt.detail.intersections[0].point.y, evt.detail.intersections[0].point.z);
+              var lookAt = new THREE.Vector3(evt.detail.intersections[numIntersects-1].point.x, evt.detail.intersections[numIntersects-1].point.y, evt.detail.intersections[numIntersects-1].point.z);
               //4/23/2020
               // lookAt.sub(document.querySelector('#enclosure').object3D.position)
               lookAt.sub(document.querySelector('#enclosure').getAttribute('position'))
