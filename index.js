@@ -211,9 +211,9 @@
           }
         }
         catch (e) {
-          console.warn("failed to track. exception is ")
-          console.log("target is " + this.data.target)
-          console.log("property is " + this.data.property)
+          console.warn("bebedio track component: failed to track")
+          // console.log("target is " + this.data.target)
+          // console.log("property is " + this.data.property)
         }
 
       }
